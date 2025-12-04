@@ -1,7 +1,7 @@
-import { HomePage } from "~/pages/HomePage";
-import type { Route } from "./+types/home";
+import type { Route } from "../../routes/+types/home";
+import { HomePage } from "../pages/HomePage";
 
-export function meta({}: Route.MetaArgs) {
+export function meta(_: Route.MetaArgs) {
   return [
     { title: "My test" },
     { name: "description", content: "Welcome to My Test!" },

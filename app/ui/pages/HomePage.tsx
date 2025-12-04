@@ -1,14 +1,14 @@
-import { useState } from "react";
-import { usePokemonAbilities } from "~/hooks/usePokemonAbilities";
+import { useState, useCallback } from "react";
+import { usePokemonAbilities } from "~/application/hooks/usePokemonAbilities";
 
 export const HomePage = () => {
   const [pokemon, setPokemon] = useState("");
   const { abilities, loading, error, load } = usePokemonAbilities();
 
-  function handleSearch() {
-    if (!pokemon) return;
+  const handleSearch = useCallback(() => {
+    if (!pokemon.trim()) return;
     load(pokemon.toLowerCase());
-  }
+  }, [pokemon, load]);
 
   return (
     <div
@@ -66,6 +66,7 @@ export const HomePage = () => {
       </div>
 
       {loading && <p style={{ opacity: 0.7 }}>Carregando...</p>}
+
       {error && <p style={{ color: "#f87171" }}>{error}</p>}
 
       {abilities.length > 0 && (
