@@ -1,87 +1,74 @@
-# Welcome to React Router!
+🟦 My Test – Frontend
 
-A modern, production-ready template for building full-stack React applications using React Router.
+Aplicação frontend desenvolvida em React utilizando React Router v7, estruturada com Clean Architecture, separando responsabilidades entre camadas como application, core, infrastructure e ui.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+A aplicação consulta habilidades de Pokémon utilizando um backend local.
 
-## Features
+🚀 Tecnologias
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+React
 
-## Getting Started
+React Router v7
 
-### Installation
+TypeScript
 
-Install the dependencies:
+Axios
 
-```bash
-npm install
-```
+TailwindCSS
 
-### Development
+Clean Architecture
 
-Start the development server with HMR:
+📂 Estrutura do Projeto
+app/
+application/
+hooks/
+queries/
+core/
+entities/
+usecases/
+infrastructure/
+http/
+services/
+ui/
+pages/
+routes/
+root.tsx
+app.css
+react-router.config.ts
 
-```bash
-npm run dev
-```
+📘 Princípios aplicados
 
-Your application will be available at `http://localhost:5173`.
+UI → apenas renderização
 
-## Building for Production
+Application → coordenação de lógica (hooks, queries)
 
-Create a production build:
+Core → regras de negócio, entidades e casos de uso
 
-```bash
-npm run build
-```
+Infrastructure → integrações externas (ex.: API)
 
-## Deployment
+▶️ Como rodar o projeto
+1️⃣ Instale as dependências
+yarn
 
-### Docker Deployment
+2️⃣ Inicie o servidor de desenvolvimento
+yarn dev
 
-To build and run using Docker:
+3️⃣ Frontend disponível em:
+http://localhost:5173
 
-```bash
-docker build -t my-app .
+🔌 Integração com o Backend
 
-# Run the container
-docker run -p 3000:3000 my-app
-```
+O frontend depende da API backend rodando em:
 
-The containerized application can be deployed to any platform that supports Docker, including:
+GET http://localhost:3000/pokemon?pokemon={nameOrId}
 
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
+📤 Exemplo de resposta esperada:
+{
+"abilities": ["static", "lightning-rod"]
+}
 
-### DIY Deployment
+📦 Build para produção
+yarn build
 
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
-
----
-
-Built with ❤️ using React Router.
+🧪 Testes
+yarn test
